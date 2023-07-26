@@ -1,10 +1,5 @@
-Assignment 8 – EVA 6
+Session 11 Assignment
 ==========================
-# Developers
-
-• Monimoy Purkayastha (monimoyd@gmail.com)
-
-• Nihar Kanungo (nihar.kanungo@gmail.com)
 
 # Explanation
 
