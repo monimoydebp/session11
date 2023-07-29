@@ -2,8 +2,9 @@ from PIL import Image
 import cv2
 import numpy as np
 from albumentations import Compose, RandomCrop, Normalize, HorizontalFlip, Resize,GaussNoise
-from albumentations.augmentations.transforms import Cutout,ElasticTransform
-from albumentations.pytorch import ToTensor
+from albumentations.augmentations.dropout.cutout import Cutout
+from albumentations.augmentations.geometric.transforms import ElasticTransform,ShiftScaleRotate
+from albumentations.pytorch import ToTensorV2
 
 
 class album_Compose_train:
@@ -15,7 +16,7 @@ class album_Compose_train:
          GaussNoise(p=0.15),
          ElasticTransform(p=0.15),
         Normalize((0.4914, 0.4822, 0.4465), ((0.2023, 0.1994, 0.2010))),
-        ToTensor(),
+        ToTensorV2(),
         ])
     def __call__(self, img):
         img = np.array(img)
@@ -27,7 +28,7 @@ class album_Compose_test:
         self.transform = Compose(
         [
         Normalize((0.4914, 0.4822, 0.4465), ((0.2023, 0.1994, 0.2010))),
-        ToTensor(),
+        ToTensorV2(),
         ])
     def __call__(self, img):
         img = np.array(img)
